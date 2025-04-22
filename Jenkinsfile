@@ -2,22 +2,34 @@ node {
     //Declare aglobal variable for mvn Home
     
     stage('version') {
+        
     //build job: 'version check'
+        
     } 
-       stage('Environment'){
-    //build job: 'Enviro-check'    
+
+    stage('Environment'){
+    
+        //build job: 'Enviro-check'       
     }
+    
     stage('Document'){
-    //build job: 'Generate-JavaDoc', parametersa: [booleanparam(name: 'generate_javadoc', value: false), stringparam(name: 'javadoc_location', value:'C:\\_javadoc00')]
+    
+        //build job: 'Generate-JavaDoc', parametersa: [booleanparam(name: 'generate_javadoc', value: false), stringparam(name: 'javadoc_location', value:'C:\\_javadoc00')]
     }
+    
     stage('compile') {
-    //build job: 'compile-RPS'
+    
+        //build job: 'compile-RPS'
     }
+    
     stage('Acceptance') {
-    //def response = input meaasge:'UAT Tests', Parameters:[choice(choice: 'Pass\nFail', description: 'Proceed or Abort?', name: 'Pass or Fail?')]
+    
+        //def response = input meaasge:'UAT Tests', Parameters:[choice(choice: 'Pass\nFail', description: 'Proceed or Abort?', name: 'Pass or Fail?')]
     }
+    
     stage('Conclusion'){
-    def response = input message: 'whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Procees or Abort?', name: 'Yes or No?')]
+            
+        def response = input message: 'whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Procees or Abort?', name: 'Yes or No?')]
     
     if (response=="Yes") {
     echo "I agree!"
@@ -26,24 +38,4 @@ node {
     }
     }
     }
-          steps{
-              git branch: 'master', url: 'https://github.com/sathyanarayanajinaga/15-04-2025.git'
-          }
-       }    
-       stage("Test"){
-          steps{
-              sh "mvn test"
-          }
-       }    
-       stage("Compile"){
-          steps{
-              sh "mvn compile"
-          }
-       }    
-       stage("Package"){
-          steps{
-              sh "mvn package"
-          }
-       }
-    }
-}
+          
