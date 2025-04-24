@@ -8,8 +8,7 @@
   <name>01-maven-web-app</name>
   <url>http://maven.apache.org</url>
  
-  <dependencies>
-    <dependencies>
+     <dependencies>
     <dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter</artifactId>
